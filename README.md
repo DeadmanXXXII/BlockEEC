@@ -1,6 +1,6 @@
 # BlockEEC
 
-Certainly! Below is the project structure and relevant source code to build the real-world, market-ready solution for cryptographic vulnerability prediction based on blockchain hashes and ECC keys.
+Below is the project structure and relevant source code to build the real-world, market-ready solution for cryptographic vulnerability prediction based on blockchain hashes and ECC keys.
 
 Project Structure
 
@@ -41,7 +41,7 @@ cryptography-vulnerability-predictor/
 Backend Source Code
 
 app.py (Flask API Server)
-
+```python
 from flask import Flask, request, jsonify
 import joblib
 from feature_extractor import analyze_hash, analyze_ecc_key
@@ -80,9 +80,10 @@ def predict_ecc():
 
 if __name__ == "__main__":
     app.run(debug=True)
+```
 
 model.py (ML Model)
-
+```python
 import joblib
 
 def predict_vulnerability(model, features):
@@ -103,15 +104,17 @@ def analyze_ecc_key(private_key):
     # Placeholder: Feature extraction logic for ECC private key
     features = [len(private_key), private_key.count("f")]
     return features
+```
 
 requirements.txt (Backend Dependencies)
-
+```
 Flask==2.0.3
 scikit-learn==0.24.2
 joblib==1.1.0
+```
 
 Dockerfile (Backend Docker)
-
+```
 # Use official Python image from Docker Hub
 FROM python:3.9-slim
 
@@ -129,14 +132,14 @@ EXPOSE 5000
 
 # Start the Flask app
 CMD ["python", "app.py"]
-
+```
 
 ---
 
 Frontend Source Code
 
 App.js (Main React Component)
-
+```pyhton
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -208,9 +211,9 @@ package.json (Frontend Dependencies)
     "start": "react-scripts start"
   }
 }
-
+```
 Dockerfile (Frontend Docker)
-
+```
 # Use official Node.js image from Docker Hub
 FROM node:14
 
@@ -228,14 +231,14 @@ EXPOSE 3000
 
 # Start the React app
 CMD ["npm", "start"]
-
+```
 
 ---
 
 Scripts
 
 train_model.py (Training Script)
-
+```python
 from sklearn.ensemble import RandomForestClassifier
 import joblib
 import pandas as pd
@@ -274,14 +277,14 @@ def generate_synthetic_data(n):
 # Generate 1000 synthetic entries
 df = generate_synthetic_data(1000)
 df.to_csv('data/known_vulnerabilities.csv', index=False)
-
+```
 
 ---
 
 Documentation
 
 README.md (Project Setup Instructions)
-
+```markdown
 # Cryptographic Vulnerability Predictor
 
 ## Overview
@@ -333,7 +336,7 @@ The trained model will be saved as backend/model_v2.pkl.
 Usage
 
 1. Send POST requests to /predict_blockchain or /predict_ecc with the appropriate cryptographic data.
-
+```
 
 2. The API will return a prediction on whether the input is vulnerable.
 
