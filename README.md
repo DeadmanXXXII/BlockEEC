@@ -6,34 +6,99 @@ Project Structure
 
 cryptography-vulnerability-predictor/
 │
+
 ├── backend/
+
 │   ├── app.py                # Flask API server
-│   ├── model.py              # ML model loading and prediction functions
-│   ├── feature_extractor.py  # Functions to extract features from blockchain hash and ECC keys
-│   ├── requirements.txt      # Backend dependencies
-│   ├── Dockerfile            # Docker container for the backend service
-│   ├── logs/                 # Directory for storing log files
-│   └── config/               # Configurations for backend setup
+│   ├── model.py
+
+# ML model loading and prediction functions
+
+│   ├── feature_extractor.py 
+
+# Functions to extract features from blockchain hash and ECC keys
+
+│   ├── requirements.txt 
+
+# Backend dependencies
+
+│   ├── Dockerfile           
+# Docker container for the backend service
+
+│   ├── logs/          
+
+# Directory for storing log files
+
+│   └── config/         
+
+# Configurations for backend setup
+
 │
+
 ├── frontend/
-│   ├── public/               # Public assets (images, fonts, etc.)
+
+│   ├── public/         
+
+# Public assets (images, fonts, etc.)
+
 │   ├── src/
-│   │   ├── App.js            # React main component
-│   │   ├── components/       # React components (e.g., input forms, results)
-│   │   └── index.js          # React entry point
-│   ├── package.json          # Frontend dependencies
-│   └── Dockerfile            # Docker container for frontend service
+
+│   │   ├── App.js           
+
+# React main component.
+
+│   │   ├── components/      
+
+# React components (e.g., input forms, results)
+
+│   │   └── index.js    
+
+# React entry point
+
+│   ├── package.json      
+
+# Frontend dependencies
+
+│   └── Dockerfile  
+
+# Docker container for frontend service
+
 │
-├── data/                     # Directory to store cryptographic datasets
-│   └── known_vulnerabilities.csv # Example of known vulnerabilities data
+
+├── data/               
+
+# Directory to store cryptographic datasets
+
+│   └── known_vulnerabilities.csv 
+
+# Example of known vulnerabilities data
+
 │
-├── docs/                     # Documentation for the project
-│   └── README.md             # Setup and usage instructions
+
+├── docs/              
+
+# Documentation for the project
+
+│   └── README.md       
+
+# Setup and usage instructions
+
 │
+
 └── scripts/
-    ├── train_model.py        # Script to train and save the ML model
-    ├── predict.py            # Script to make individual predictions
-    └── generate_data.py      # Script to generate synthetic cryptographic data
+
+  ├── train_model.py      
+    
+# Script to train and save the ML model
+    
+    
+ ├── predict.py        
+ 
+# Script to make individual predictions
+
+└── generate_data.py  
+    
+# Script to generate synthetic cryptographic data
 
 
 ---
@@ -336,9 +401,10 @@ The trained model will be saved as backend/model_v2.pkl.
 Usage
 
 1. Send POST requests to /predict_blockchain or /predict_ecc with the appropriate cryptographic data.
-```
+
 
 2. The API will return a prediction on whether the input is vulnerable.
+```
 
 
 This structure includes **secure APIs**, **feature extraction**, **real-time predictions**, and **front-end integration**, making it a scalable, secure, and user-friendly system.
